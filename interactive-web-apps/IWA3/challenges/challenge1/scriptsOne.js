@@ -1,4 +1,4 @@
-// scripts.js
+
 
 //import didnt have curly brackets and the correct source path, wrong import used
 
