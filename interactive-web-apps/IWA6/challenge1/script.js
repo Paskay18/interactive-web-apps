@@ -21,7 +21,7 @@ console.log('Secondary phone is valid numerical string:', typeof secondaryValid=
 
 //another way
 
-const primaryValid1 = primaryPhone    //its gonna register as NaN
+const primaryValid1 = primaryPhone    //its gonna register as NaN if parseInt is added
 const secondaryValid2 = parseInt(secondaryPhone)
 
 console.log('Primary1 phone is valid numerical string:', typeof primaryValid1==='number')
