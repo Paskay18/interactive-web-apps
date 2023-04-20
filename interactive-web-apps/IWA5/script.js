@@ -1,6 +1,6 @@
 WARNING = 'Free shipping only applies to single customer orders'
 BANNED_WARNING = 'Unfortunately we do not ship to your country of residence'
-NONE_SELECTED = '0'
+NONE_SELECTED = 0
 
 let customers = 1
 let country = 'null'
@@ -11,9 +11,9 @@ let shipping= 0
 
         let shoes = 300 * 1
         let toys =100 * 5
-        let shirts = 150 * 0
+        let shirts = 150 * NONE_SELECTED
         let batteries = 35 * 2
-        let pens = 5 * 0
+        let pens = 5 * NONE_SELECTED
         
         let cart =shoes + batteries + pens + shirts
 
@@ -21,8 +21,7 @@ let shipping= 0
         currency='R'    
 
 if (country==='RSA'  && cart>=1000 && customers===1|| country==='namB' && cart>=60 && customers===1) {
-    shipping=0
-}
+    shipping=0}
 else if (customers!==1){
     console.log(WARNING)
 }
@@ -40,5 +39,4 @@ if (country==='RSA') {
 
 
 country !== 'NK'? console.log('price', currency, shoes+ toys + batteries + pens + shirts + shipping):console.log(BANNED_WARNING)
-
 

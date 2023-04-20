@@ -3,6 +3,8 @@ const secondaryPhone = '0219131568'
 
 // Only change below this line
 
+//both are strings so you have to change one inorder for you to use typeof
+
 let primaryValid = Boolean(primaryPhone)===false
 let secondaryValid = Boolean(secondaryPhone)===true
 
