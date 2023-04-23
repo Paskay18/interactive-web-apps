@@ -41,6 +41,6 @@ const sarah = {
 	}
 }
 
-console.log(leo, leo[address][postal-code])
+
 console.log(leo.address.postalCode)
 console.log(sarah.address.postalCode)
