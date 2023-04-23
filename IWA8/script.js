@@ -14,10 +14,14 @@ const sarahPostal = '0310'
 // Only change below this line
 
 
-
+/** values were assigned without = in the const
+ *  values inside object used = not :
+ *  access ID was not supposed to be assigned
+ *  
+  */
 
 const leo = { 
-    age: 24,                                          //age values being reassigned
+    age: 24,                       //new age value                   //age values being reassigned
 	name :leoName, 
     balance : leoBalance,                              //leoSurname removed
 	address: address= {
@@ -37,6 +41,6 @@ const sarah = {
 	}
 }
 
-
+console.log(leo, leo[address][postal-code])
 console.log(leo.address.postalCode)
 console.log(sarah.address.postalCode)

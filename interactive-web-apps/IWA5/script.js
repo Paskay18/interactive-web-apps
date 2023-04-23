@@ -6,7 +6,7 @@ NONE_SELECTED = 0
 //BANNED_WARNING was missing a g
 
 //must all contain let because they change
-let customers = 1   //location was already declared 
+let customers = 2  //location was already declared 
 let country = 'null'
 let currency = 'null'
 let shipping= 0
@@ -19,22 +19,40 @@ let shipping= 0
         let batteries = 35 * 2
         let pens = 5 * NONE_SELECTED
         
-        let cart =shoes + batteries + pens + shirts  //toys was missing in the calculation
-
-        country = 'RSA'     //have to declare country and currency
+        let cart =shoes + batteries + pens + shirts+ toys  //toys was missing in the calculation
+console.log(cart)
+        country = 'namB'     //have to declare country and currency
         currency='R'    
 
-if (country==='RSA'  && cart>=1000 && customers===1|| country==='namB' && cart>=60 && customers===1) { //code was written wrong
+if (country==='RSA'  && cart>=1000 && customers===1){  //code was written wrong
     shipping=0}
-else if (customers!==1){
+if (customers>1){
     console.log(WARNING)
 }
-if (country==='RSA') {
-        shipping = 400 ;}
-        else if (country ==='namB'){
-            shipping= 600
-        } 
-                    else {shipping = 800}
+if (country==='RSA' && 1000>=cart ){
+    shipping=400
+   }
+if (country==='RSA' && 1000>=cart){
+    shipping=400
+   }
+
+if (country==='RSA'&& 1000>=cart){
+    shipping= 400
+}
+
+if(country==='namB' && cart>=60 && customers===1){
+    shipping=0
+}
+if (country==='namB' && 60>=cart ){
+    shipping=600
+   }
+ if(country==='namB' && cart>=60 && customers>1){
+    shipping=600
+ }  
+
+if(country!== 'RSA' && country!=='namB'){
+    shipping=800
+}
 
 
     
