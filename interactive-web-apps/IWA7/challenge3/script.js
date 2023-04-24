@@ -9,14 +9,16 @@ const sarahBalance = '-4582.21000111'
 const divider = '----------------------------------'
 
 // Only change below this line
+
 let sName = sarahName
     sName='Sarah '
+
 let between=""
-let owed = parseFloat( leoBalance) + parseFloat(sarahBalance)
-owed= (owed*-1).toFixed(2)
-owed1=owed.split('',2).join(between)
+let owed = parseFloat( leoBalance) + parseFloat(sarahBalance)    //used parseFloat to show the decimals
+owed= (owed*-1).toFixed(2)                                        //owed was a negative value, multiplied by -1 to make positive
+owed1=owed.split('',2).join(between)                               //the number wasnt split
 owed2=owed.split('13').join(between)
-owed= owed1 + ` ${owed2}`
+owed= owed1 + ` ${owed2}`                                         //joined the two to created the space
 
 const leo =`${`  ${leoName} ${leoSurname} (Owed: R ${-1*parseFloat(leoBalance).toFixed(2)})` }`
 const sarah = `${`  
