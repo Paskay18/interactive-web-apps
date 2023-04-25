@@ -10,11 +10,11 @@ const divider = '----------------------------------'
 
 // Only change below this line
 
-let sName = sarahName
+let sName = sarahName                                             //fix space in Sarah
     sName='Sarah '
-
 let between=""
-let owed = parseFloat( leoBalance) + parseFloat(sarahBalance)    //used parseFloat to show the decimals
+
+let owed = parseFloat( leoBalance) + parseFloat(sarahBalance)    //used parseFloat to show the decimals and to convert to number
 owed= (owed*-1).toFixed(2)                                        //owed was a negative value, multiplied by -1 to make positive
 owed1=owed.split('',2).join(between)                               //the number wasnt split
 owed2=owed.split('13').join(between)
