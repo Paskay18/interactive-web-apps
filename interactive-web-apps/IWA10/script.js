@@ -102,7 +102,7 @@ const lastHoliday = Math.max(
 
 
 console.log(firstHoliday)
-const firstDay = new Date(firstHoliday.getDate());
+const firstDay = ;
 console.log(firstDay)
 const firstMonth = firstHoliday.getMonth()+1;
 
