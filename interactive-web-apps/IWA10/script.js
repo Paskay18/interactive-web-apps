@@ -53,19 +53,20 @@ const futureId = 9
 
 // Do not change code above this comment
 
-console.log( holidays.futureId||`ID ${futureId} not created yet`)
+console.log( holidays[futureId]||`ID ${futureId} not created yet`)
 
 //changing Christmas
 const copied= holidays[6]
 copied.name= 'X-mas'
 copied.date= new Date(`25 December ${currentYear}`)
+console.log(copied.date)
 
-currentDate= new Date(`24 April ${currentYear}`)
-correctDate = copied.date
-correctDate.hours = 0
-correctDate.minutes = 0
+//checking if current date is earlier
+
+const currentDate= new Date(`24 April ${currentYear}`)
+const correctDate = copied.date
+
 isEarlier = correctDate>currentDate
- 
 if (isEarlier){console.log('New date is earlier:true')
 console.log('ID change:', holidays[christmas].id != copied.id || 'false')
 console.log('Name change:', holidays[christmas].name != copied.name || copied.name)
@@ -73,7 +74,7 @@ console.log('Date change:', holidays[christmas].date != copied.date || '25/12/20
 }
 else{console.log('New date is earlier: false')}
 
-const firstHolidayTimestamp =new Date(Math.min(
+let firstHoliday =new Date(Math.min(
    new Date( holidays[0].date),
    new Date (holidays[1].date),
    new Date(holidays[2].date),
@@ -85,7 +86,7 @@ const firstHolidayTimestamp =new Date(Math.min(
    new Date(holidays[8].date),
 ))
 console.log(holidays[0].date)
-const  lastHolidayTimestamp = new Date(Math.max(
+ lastHoliday = new Date(Math.max(
     new Date( holidays[0].date),
     new Date (holidays[1].date),
     new Date(holidays[2].date),
@@ -99,17 +100,46 @@ const  lastHolidayTimestamp = new Date(Math.max(
 
 
 
-const firstDay = firstHolidayTimestamp.getDate();
-console.log(firstHolidayTimestamp.getDate())
-const firstMonth = firstHolidayTimestamp.getMonth()+1;
-console.log(firstHolidayTimestamp.getMonth())
-const lastDay = lastHolidayTimestamp.getDate();
-console.log(lastHolidayTimestamp.getDate())
-const lastMonth = lastHolidayTimestamp.getMonth()+1;
-console.log(lastHolidayTimestamp.getMonth())
+const firstDay = firstHoliday.getDate();
+console.log(firstHoliday.getDate())
+const firstMonth = firstHoliday.getMonth()+1;
+console.log(firstHoliday.getMonth())
+const lastDay = lastHoliday.getDate();
+console.log(lastHoliday.getDate())
+const lastMonth = lastHoliday.getMonth()+1;
+console.log(lastHoliday.getMonth())
 
-console.log(`0${firstDay}/0${firstMonth}/${2030}`)
-console.log(`${lastDay}/${lastMonth}/${2030}`)
+console.log(`0${firstDay}/0${firstMonth}/${currentYear}`)
+console.log(`${lastDay}/${lastMonth}/${currentYear}`)
 
-const randomHoliday = new Date(Math.random(lastHolidayTimestamp - firstHolidayTimestamp))
-console.log(randomHoliday)
+
+//to get random date
+
+startDate= firstHoliday
+endDate= lastHoliday
+randomHoliday = new Date(startDate.getTime() + Math.random() * (endDate.getTime() - startDate.getTime()))
+console.log(randomHoliday);
+
+const day = randomHoliday.getDate();
+console.log(randomHoliday.getDate())
+const month = randomHoliday.getMonth()+1;
+
+if(day>10 && month>10){
+    console.log(`${day}/${month}/${currentYear}`)}
+    else {
+        console.log(`0${firstDay}/0${month}/${currentYear}`)
+    }
+    if(day<10 && month>10){
+        console.log(`0${firstDay}/${month}/${currentYear}`)
+    }
+    if(day>10 && month<10){
+        console.log(`${firstDay}/0${month}/${currentYear}`)
+    }
+    
+
+
+
+
+
+    
+    
