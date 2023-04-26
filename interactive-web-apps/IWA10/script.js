@@ -53,7 +53,7 @@ const futureId = 9
 
 // Do not change code above this comment
 
-console.log( holidays[futureId]||`ID ${futureId} not created yet`)
+console.log( holidays[futureId]||`ID ${futureId} not created yet`)  //to check if 9 was assigned
 
 //changing Christmas
 const copied= holidays[6]
@@ -74,40 +74,42 @@ console.log('Date change:', holidays[christmas].date != copied.date || '25/12/20
 }
 else{console.log('New date is earlier: false')}
 
-let firstHoliday =new Date(Math.min(
-   new Date( holidays[0].date),
-   new Date (holidays[1].date),
-   new Date(holidays[2].date),
-   new Date(holidays[3].date),
-   new Date(holidays[4].date),
-   new Date(holidays[5].date),
-   new Date(holidays[6].date),
-   new Date (holidays[7].date),
-   new Date(holidays[8].date),
-))
+const  firstHoliday = Math.min(
+   new Date( holidays[0].date).getTime(),
+   new Date (holidays[1].date).getTime(),
+   new Date(holidays[2].date).getTime(),
+   new Date(holidays[3].date).getTime(),
+   new Date(holidays[3].date).getTime(),
+   new Date(holidays[3].date).getTime(),
+   new Date(holidays[4].date).getTime(),
+   new Date(holidays[5].date).getTime(),
+   new Date(holidays[6].date).getTime(),
+   new Date (holidays[7].date).getTime(),
+   new Date(holidays[8].date).getTime(),
+)
 console.log(holidays[0].date)
- lastHoliday = new Date(Math.max(
-    new Date( holidays[0].date),
-    new Date (holidays[1].date),
-    new Date(holidays[2].date),
-    new Date(holidays[3].date),
-    new Date(holidays[4].date),
-    new Date(holidays[5].date),
-    new Date(holidays[6].date),
-    new Date (holidays[7].date),
-    new Date(holidays[8].date),
-))
+const lastHoliday = Math.max(
+    new Date(holidays[0].date).getTime(),
+    new Date (holidays[1].date).getTime(),
+    new Date(holidays[2].date).getTime(),
+    new Date(holidays[3].date).getTime(),
+    new Date(holidays[4].date).getTime(),
+    new Date(holidays[5].date).getTime(),
+    new Date(holidays[6].date).getTime(),
+    new Date (holidays[7].date).getTime(),
+    new Date(holidays[8].date).getTime(),
+)
 
 
-
-const firstDay = firstHoliday.getDate();
-console.log(firstHoliday.getDate())
+console.log(firstHoliday)
+const firstDay = new Date(firstHoliday.getDate());
+console.log(firstDay)
 const firstMonth = firstHoliday.getMonth()+1;
-console.log(firstHoliday.getMonth())
+
 const lastDay = lastHoliday.getDate();
-console.log(lastHoliday.getDate())
+
 const lastMonth = lastHoliday.getMonth()+1;
-console.log(lastHoliday.getMonth())
+
 
 console.log(`0${firstDay}/0${firstMonth}/${currentYear}`)
 console.log(`${lastDay}/${lastMonth}/${currentYear}`)
