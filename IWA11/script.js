@@ -1,34 +1,65 @@
+
 // script.js
 
-const 1-root = document(order1),
-const 1-biscuits: document(biscuits),
-const 1-donuts: document(donuts),
-const 1-pancakes: document(pancakes),
-const 1-status: document(status)
+const root_1 = document.querySelector("[data-key=order1");
+ root_1.dataset.biscuits;
+ root_1.dataset.donuts;
+ root_1.dataset.pancakes;
+root_1.dataset.delivered;
 
-const 2-root = document(order2),
-const 2-biscuits: document(biscuits),
-const 2-donuts: document(donuts),
-const 2-pancakes: document(pancakes),
-const 2-status: document(status)
+const root_2 = document.querySelector("[data-key=order2]");
+root_2.dataset.biscuits;
+root_2.dataset.donuts;
+root_2.dataset.pancakes;
+root_2.dataset.delivered;
 
-const 3-root = document(order3),
-const 3-biscuits: document(biscuits),
-const 3-donuts: document(donuts),
-const 3-pancakes: document(pancakes),
-const 3-status: document(status)
+const root_3= document.querySelector("[data-key=order3]");
+root_3.dataset.biscuits;
+root_3.dataset.donuts;
+root_3.dataset.pancakes;
+root_3.dataset.delivered; 
+ 
+const orderOneBiscuits= document.querySelector('body> section:nth-child(3) > dl > div.biscuits > dd');
+orderOneBiscuits.innerText=root_1.dataset.biscuits;
 
-1-biscuits= 1-root.biscuits,
-1-donuts = 1-root.donuts,
-1-pancakes = 1-root.pancakes,
-1-status = 1-root.status ? Delivered : Pending
+const orderOneDonuts= document.querySelector('body> section:nth-child(3) > dl > div.donuts>dd');
+orderOneDonuts.innerText=root_1.dataset.donuts;
 
-2-biscuits= 2-root.biscuits,
-2-donuts = 2-root.donuts,
-2-pancakes = 2-root.pancakes,
-2-status = 2-root.status ? Delivered : Pending
+const orderOnePancakes= document.querySelector('body> section:nth-child(3) > dl > div.pancakes>dd');
+orderOnePancakes.innerText=root_1.dataset.pancakes;
 
-3-biscuits= 3-root.biscuits,
-3-donuts = 3-root.donuts,
-3-pancakes = 3-root.pancakes,
-3-status = 3-root.status ? Delivered : Pending
+const orderOneStatus= document.querySelector('body> section:nth-child(3) > dl > div.status>dd');
+orderOneStatus.innerText=root_1.dataset.delivered==='true'? 'Delivered': 'Not Yet';
+
+
+//order 2 items
+const orderTwoBiscuits= document.querySelector('body> section:nth-child(4) > dl > div.biscuits > dd');
+orderTwoBiscuits.innerText=root_2.dataset.biscuits;
+
+const orderTwoDonuts= document.querySelector('body> section:nth-child(4) > dl > div.donuts>dd');
+orderTwoDonuts.innerText=root_2.dataset.donuts;
+
+const orderTwoPancakes= document.querySelector('body> section:nth-child(4) > dl > div.pancakes>dd');
+orderTwoPancakes.innerText=root_2.dataset.pancakes;
+
+const orderTwoStatus= document.querySelector('body> section:nth-child(4) > dl > div.status>dd');
+orderTwoStatus.innerText=root_2.dataset.delivered==='true'? 'Delivered': 'Not Yet Delivered';
+
+//order3 items
+//order 2 items
+const orderThreeBiscuits= document.querySelector('body> section:nth-child(5) > dl > div.biscuits > dd');
+orderThreeBiscuits.innerText=root_3.dataset.biscuits;
+
+const orderThreeDonuts= document.querySelector('body> section:nth-child(5) > dl > div.donuts>dd');
+orderThreeDonuts.innerText=root_2.dataset.donuts;
+
+const orderThreePancakes= document.querySelector('body> section:nth-child(5) > dl > div.pancakes>dd');
+orderThreePancakes.innerText=root_3.dataset.pancakes;
+
+const orderThreeStatus= document.querySelector('body> section:nth-child(5) > dl > div.status>dd');
+orderThreeStatus.innerText=root_3.dataset.delivered==='false' ? 'Delivered': ' Delivered';
+
+
+
+
+
