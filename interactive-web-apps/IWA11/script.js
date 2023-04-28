@@ -1,6 +1,8 @@
 
 // script.js
 
+//main location of items and values
+
 const root_1 = document.querySelector("[data-key=order1");
  root_1.dataset.biscuits;
  root_1.dataset.donuts;
@@ -18,6 +20,8 @@ root_3.dataset.biscuits;
 root_3.dataset.donuts;
 root_3.dataset.pancakes;
 root_3.dataset.delivered; 
+
+//order 2 biscuits and their location
  
 const orderOneBiscuits= document.querySelector('body> section:nth-child(3) > dl > div.biscuits > dd');
 orderOneBiscuits.innerText=root_1.dataset.biscuits;
@@ -45,8 +49,7 @@ orderTwoPancakes.innerText=root_2.dataset.pancakes;
 const orderTwoStatus= document.querySelector('body> section:nth-child(4) > dl > div.status>dd');
 orderTwoStatus.innerText=root_2.dataset.delivered==='true'? 'Delivered': 'Not Yet Delivered';
 
-//order3 items
-//order 2 items
+//order3 items and locations
 const orderThreeBiscuits= document.querySelector('body> section:nth-child(5) > dl > div.biscuits > dd');
 orderThreeBiscuits.innerText=root_3.dataset.biscuits;
 
