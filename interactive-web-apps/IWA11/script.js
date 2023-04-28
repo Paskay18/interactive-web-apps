@@ -32,7 +32,7 @@ const orderOneStatus= document.querySelector('body> section:nth-child(3) > dl > 
 orderOneStatus.innerText=root_1.dataset.delivered==='true'? 'Delivered': 'Not Yet';
 
 
-//order 2 items
+//order 2 items and their locations 
 const orderTwoBiscuits= document.querySelector('body> section:nth-child(4) > dl > div.biscuits > dd');
 orderTwoBiscuits.innerText=root_2.dataset.biscuits;
 
