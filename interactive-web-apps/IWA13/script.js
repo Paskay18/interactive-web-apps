@@ -16,8 +16,8 @@ const logCalc = () => {
 const  calcUser= () => {                                  //had logcalc
   if (calculated >= 2) {user = 'John'};                     
   if (calculated >= 2) {state = 'requesting'};
-  if (calculated >= 3) {state = 'idle'};
-  return calculated;
+  if (calculated >= 3) {state = 'idle'};                  //added = 
+  return calculated;                                             //added return 
 }
 
 const checkUser = () => {
