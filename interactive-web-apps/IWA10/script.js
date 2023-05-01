@@ -125,9 +125,11 @@ const randomDateMonth= new Date(randomDate.date).getMonth()+1
 const randomDateYear = new Date(randomDate.date).getFullYear()
 
 
-if( randomDateDay>=10 && randomDateMonth>=10  ){
-console.log(`${randomDateDay}/${randomDateMonth}/${currentYear}`)}else if(randomDateDay>=10 && randomDateMonth>=9 ){
-    console.log(`${randomDateDay}/0${randomDateMonth}/${currentYear}`)}
+if( 9>=randomDateDay && randomDateMonth<9){
+    console.log(`0${randomDateDay}/0${randomDateMonth}/${currentYear}`)}else if(24>=randomDateDay && 9>=randomDateMonth){
+        console.log(`${randomDateDay}/0${randomDateMonth}/${currentYear}`)} 
+        else if( 26>=randomDateDay && 12>=randomDateMonth){console.log(`${randomDateDay}/${randomDateMonth}/${currentYear}`)}
+
 
 
 
