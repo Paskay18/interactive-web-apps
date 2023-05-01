@@ -33,33 +33,29 @@ const STATUS_MAP = {
 
 
 const book1 ={
-    status1: document.querySelector('.status#book1'),
-    reserve1: document.getElementById("book1").getElementsByClassName("reserve"),
-    checkOut1: document.getElementById("book1").getElementsByClassName("checkout"),
-    checkIn1: document.getElementById("book1").getElementsByClassName("checkin"),
+    status1: document.querySelector('span'),
+    reserve1: document.querySelector('button'),
+    checkOut1: document.querySelector('button.checkout'),
+    checkIn1: document.querySelector('button.checkin'),
 }
 
+
+
+console.log(book1.checkOut1)
 const book2 ={
-    status2: document.querySelector('#book2.status'),
-    reserve2 : document.querySelector('#book2.reserve'),
-    checkOut2: document.querySelector('#book2.checkout'),
-    checkIn2: document.querySelector('#book2.checkin'),
+    status2: document.querySelector('body>#book2'),
+    reserve2 : document.querySelector('button'),
+    checkOut2: document.querySelector('button.checkout'),
+    checkIn2: document.querySelector('button.checkout'),
 }
+console.log(book2.status2)
 
 const book3 ={
-    status3: document.querySelector('#book3.status'),
-    reserve3 : document.querySelector('#book3.reserve'),
-    checkOut3: document.querySelector('#book3.checkout'),
-    checkIn3: document.querySelector('#book3.checkin'),
+    status3: document.querySelector('span'),
+    reserve3 : document.querySelector('button.reserve'),
+    checkOut3: document.querySelector('button.checkout'),
+    checkIn3: document.querySelector('button.checkin'),
 }
 
 //book1 Overdue
-
-book1.status1.ATTRIBUTE_NODE.= 'grayScale100%';
-book1..stycolor= STATUS_MAP.overdue.color;
-book1.reserve1.disabled =! STATUS_MAP.overdue.canReserve;
-book1.checkOut1.disabled=! STATUS_MAP.overdue.canCheckout;
-book1.checkIn1.disabled=== STATUS_MAP.overdue.canCheckIn;
-
-
-
+book1.ch
