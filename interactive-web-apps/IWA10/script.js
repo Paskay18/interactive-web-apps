@@ -87,7 +87,7 @@ const  firstHoliday = Math.min(
    new Date (holidays[7].date).getTime(),
    new Date(holidays[8].date).getTime(),
 )
-console.log(holidays[0].date)
+
 const lastHoliday = Math.max(
     new Date(holidays[0].date).getTime(),
     new Date (holidays[1].date).getTime(),
@@ -101,14 +101,11 @@ const lastHoliday = Math.max(
 )
 
 
-console.log(firstHoliday)
-const firstDay = ;
-console.log(firstDay)
-const firstMonth = firstHoliday.getMonth()+1;
+const firstDay = new Date(firstHoliday).getDate()
 
-const lastDay = lastHoliday.getDate();
-
-const lastMonth = lastHoliday.getMonth()+1;
+const firstMonth = new Date (firstHoliday).getMonth()+1;
+const lastDay = new Date (lastHoliday).getDate();
+const lastMonth = new Date (lastHoliday).getMonth()+1;
 
 
 console.log(`0${firstDay}/0${firstMonth}/${currentYear}`)
@@ -117,27 +114,20 @@ console.log(`${lastDay}/${lastMonth}/${currentYear}`)
 
 //to get random date
 
-startDate= firstHoliday
-endDate= lastHoliday
-randomHoliday = new Date(startDate.getTime() + Math.random() * (endDate.getTime() - startDate.getTime()))
-console.log(randomHoliday);
+const randomHolidayArray= [holidays[0], holidays[1], holidays[2], holidays[3], holidays[4],holidays[5], holidays[6], holidays[7], holidays[8]]
 
-const day = randomHoliday.getDate();
-console.log(randomHoliday.getDate())
-const month = randomHoliday.getMonth()+1;
 
-if(day>10 && month>10){
-    console.log(`${day}/${month}/${currentYear}`)}
-    else {
-        console.log(`0${firstDay}/0${month}/${currentYear}`)
-    }
-    if(day<10 && month>10){
-        console.log(`0${firstDay}/${month}/${currentYear}`)
-    }
-    if(day>10 && month<10){
-        console.log(`${firstDay}/0${month}/${currentYear}`)
-    }
-    
+const randomHoliday= randomHolidayArray[Math.floor(Math.random()*randomHolidayArray.length)]
+
+const randomDate = randomHoliday
+const randomDateDay= new Date(randomDate.date).getDate()
+const randomDateMonth= new Date(randomDate.date).getMonth()+1
+const randomDateYear = new Date(randomDate.date).getFullYear()
+
+
+if( randomDateDay>=10 && randomDateMonth>=10  ){
+console.log(`${randomDateDay}/${randomDateMonth}/${currentYear}`)}else if(randomDateDay>=10 && randomDateMonth>=9 ){
+    console.log(`${randomDateDay}/0${randomDateMonth}/${currentYear}`)}
 
 
 
