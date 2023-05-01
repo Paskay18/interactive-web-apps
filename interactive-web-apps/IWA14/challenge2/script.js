@@ -1,20 +1,24 @@
 // script.js
 
-function internal (a, b, result1){
-    
-    
-    function add (a,b) {
-        return a + b;
-    }
-    
-    function multiply (a,b) {
-        return a * b;
-    }
+function add (a,b) {
+    return a + b;
+}
 
-    result1 = add.call(this.a,this.b )*multiply.call(this.a,this.b)
+function multiply (a,b) {
+    return a * b;
+}
+
+
+function internal (a, b){
+ 
+result1 = add(a, b )*multiply(a,b)
   return result1 }
 
- 
+const result2= internal(2,4);
+console.log(result2)
+
+const result3 = internal(2,2)
+console.log(result3)
 
  
 // Not allowed to change below this
