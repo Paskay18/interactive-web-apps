@@ -31,31 +31,35 @@ const STATUS_MAP = {
 
 //creating book objects
 
+const books=[
+    {
+        status: document.querySelector('#book1 .status').innerText,
+       
+        html:{
+        status: document.querySelector('#book1 .status'),
+        reserve: document.querySelector('#book1 .reserve'),
+        checkOut: document.querySelector('#book1 .checkout'),
+        checkIn: document.querySelector('#book1 .checkin'),   
+    },{
 
-const book1 ={
-    status1: document.querySelector('span'),
-    reserve1: document.querySelector('button'),
-    checkOut1: document.querySelector('button.checkout'),
-    checkIn1: document.querySelector('button.checkin'),
+    html:{
+        status: document.querySelector('#book2 .status'),
+        reserve: document.querySelector('#book2 .reserve'),
+        checkOut: document.querySelector('#book2 .checkout'),
+        checkIn: document.querySelector('#book2 .checkin'),   
+    },
+
+    html:{
+        status: document.querySelector('#book3 .status'),
+        reserve: document.querySelector('#book3 .reserve'),
+        checkOut: document.querySelector('#book3 .checkout'),
+        checkIn: document.querySelector('#book3 .checkin'),   
+    },
 }
+]
 
 
-
-console.log(book1.checkOut1)
-const book2 ={
-    status2: document.querySelector('body>#book2'),
-    reserve2 : document.querySelector('button'),
-    checkOut2: document.querySelector('button.checkout'),
-    checkIn2: document.querySelector('button.checkout'),
-}
-console.log(book2.status2)
-
-const book3 ={
-    status3: document.querySelector('span'),
-    reserve3 : document.querySelector('button.reserve'),
-    checkOut3: document.querySelector('button.checkout'),
-    checkIn3: document.querySelector('button.checkin'),
-}
 
 //book1 Overdue
-book1.ch
+
+console.log(books)
