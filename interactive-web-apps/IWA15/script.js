@@ -8,21 +8,32 @@ const data = {
 
 // Only edit below
 
+
+//how to get each array
 const {lists: [[,first]]}=data
 const {lists: [,[,second]]}=data
 const {lists: [,,[,third]]}=data
 const result = []
 
-console.log(third[third.length-1])
+
+
+//getting arrays into the result array by comparing last 
 const extractBiggest = () => {
-       if (second[second.length-1]> first[first.length-1] && 
-          (second[second.length-2]> first[first.length-2])){return shift(first)}
 
+    //getting each biggest value
+
+const firstBiggestValue = first[first.length-1]
+const secondBiggestValue = second[second.length-1]
+const thirdBiggestValue = third[third.length-1]
+ console.log(thirdBiggestValue)
+
+ if (secondBiggestValue>firstBiggestValue){return second.pop()} 
+ else if(firstBiggestValue>secondBiggestValue) {return first.pop()}
+ if(thirdBiggestValue>=1){return second.shift()}
+ {return third.pop()}
+ 
+ 
 }
-
-
-
-console.log(extractBiggest)
 
 // Only edit above
 
