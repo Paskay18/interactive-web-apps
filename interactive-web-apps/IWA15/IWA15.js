@@ -29,6 +29,7 @@ const thirdBiggestValue = third[third.length-1]
 
  if (secondBiggestValue>firstBiggestValue){return second.pop()} 
  else if(firstBiggestValue>secondBiggestValue) {return first.pop()}
+ 
  if(secondBiggestValue>=1){return second.shift()}
  {return third.pop()}
  
