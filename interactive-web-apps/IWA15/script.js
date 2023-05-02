@@ -10,7 +10,7 @@ const data = {
 
 
 //how to get each array
-const {lists: [[,first]]}=data
+const {lists: [[,first]]}=data                   //used deconstruction method, could just get values directly
 const {lists: [,[,second]]}=data
 const {lists: [,,[,third]]}=data
 const result = []
@@ -29,7 +29,8 @@ const thirdBiggestValue = third[third.length-1]
 
  if (secondBiggestValue>firstBiggestValue){return second.pop()} 
  else if(firstBiggestValue>secondBiggestValue) {return first.pop()}
- if(thirdBiggestValue>=1){return second.shift()}
+ 
+ if(secondBiggestValue>=1){return second.shift()}
  {return third.pop()}
  
  
