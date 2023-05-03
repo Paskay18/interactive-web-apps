@@ -119,11 +119,13 @@ const MONTHS = [
   //for Nwabisa
   const nwabisaSection = document.querySelector('[data-athlete = NM372]');
   //create new nodes for data list
+  
   //adding h2
   const h2 = document.createElement('h2');
   h2.textContent= 'NM371';
   nwabisaSection.appendChild(h2);
-//adding list
+
+  //adding list
   const dl = document.createElement('dl');
   nwabisaSection.appendChild(dl);
 
@@ -158,11 +160,13 @@ const MONTHS = [
 //for Schalk 
 const schalkSection = document.querySelector('[data-athlete = SV782]');
   //create new nodes for data list
+ 
   //adding h2
   const h2S = document.createElement('h2');
   h2S.textContent= 'SV782';
    schalkSection.appendChild(h2S)
-//adding list
+
+   //adding list
   const dlS = document.createElement('dl');
   schalkSection.appendChild(dlS);
 
