@@ -71,6 +71,49 @@ const MONTHS = [
   const nwabisaData = data.response.data.NM372
   const schalkData = data.response.data.SV782
 
+  //nwabisa
+  const nwabisaName = nwabisaData.firstName
+  const nwabisaSurname = nwabisaData.surname
+  const nwabisaRaces = nwabisaData.races.length
+  const nwabisaDate = nwabisaData.races.pop().date
+  const nwabisaTime = nwabisaData.races.pop().time
+
+
+  //schalk 
+  const schalkName = schalkData.firstName
+  const schalkSurname = schalkData.surname
+  const schalkRaces = schalkData.races.length
+  const schalkDate = schalkData.races.pop().date
+  const schalkTime = schalkData.races.pop().time
+  console.log(schalkTime)
+  
+  //date in format
+  const nDay = new Date (nwabisaDate).getDate()
+  let nMonth = new Date(nwabisaDate).getMonth()+1
+      nMonth = MONTHS[11]
+  const nYear = new Date(nwabisaDate).getFullYear()
+  
+  const sDay = new Date (schalkDate).getDate()
+  let sMonth = new Date(schalkDate).getMonth()+1
+      sMonth = MONTHS[11]
+  const sYear = new Date(schalkDate).getFullYear()
+  
+  //time calcutlations
+  //nwabisa Time
+  const nTimeArray = nwabisaTime[0]+nwabisaTime[1]+nwabisaTime[2]+nwabisaTime[3]
+  console.log(nTimeArray)
+
+  const nTimeHours = nTimeArray/60
+  console.log(nTimeHours)
+  
+  //schalkTime
+  const sTimeArray = schalkTime[0]+schalkTime[1]+schalkTime[2]+schalkTime[3]
+
+
+  const sTimeHours = sTimeArray/60
+  console.log(sTimeArray)
+
+  
   //getting information on each section
 
   //for Nwabisa
@@ -79,53 +122,77 @@ const MONTHS = [
   //adding h2
   const h2 = document.createElement('h2');
   h2.textContent= 'NM371';
-   nwabisaSection.appendChild(h2)
+  nwabisaSection.appendChild(h2);
 //adding list
   const dl = document.createElement('dl');
   nwabisaSection.appendChild(dl);
 
   const dt= document.createElement('dt');
-  dt.textContent='Athlete: Nwabisa Masiko';
+  dt.textContent='Athlete:' ;
   nwabisaSection.appendChild(dt);
-
   const dd= document.createElement('dd');
-  dd.textContent= 'Total number of races: 2';
+  dd.textContent= `${nwabisaName} ${nwabisaSurname}`  ;
   nwabisaSection.appendChild(dd);
 
+  const dt1= document.createElement('dt');
+  dt1.textContent= 'Number of races:';
+  nwabisaSection.appendChild(dt1);
   const dd1= document.createElement('dd');
-  dd1.textContent='Event Date (Latest): 2 Dec 2022';
+  dd1.textContent=`${nwabisaRaces}`;
   nwabisaSection.appendChild(dd1);
 
-  const dd3= document.createElement('dd');
-  dd3.textContent='Total Time(Latest):';
-  nwabisaSection.appendChild(dd3);
+  const dt2= document.createElement('dt');
+  dt2.textContent= 'Event Date (Latest):';
+  nwabisaSection.appendChild(dt2);
+  const dd2= document.createElement('dd');
+  dd2.textContent=`${nDay} ${nMonth} ${nYear}`;
+  nwabisaSection.appendChild(dd2);
 
+  const dt3= document.createElement('dt');
+  dt3.textContent= 'Event Time (Latest):';
+  nwabisaSection.appendChild(dt3);
+  const dd3= document.createElement('dd');
+  dd3.textContent=`${nTimeHours}`;
+  nwabisaSection.appendChild(dd3);
   
 //for Schalk 
 const schalkSection = document.querySelector('[data-athlete = SV782]');
   //create new nodes for data list
   //adding h2
-  const h2 = document.createElement('h2');
-  h2.textContent= 'SV782';
-   schalkSection.appendChild(h2)
+  const h2S = document.createElement('h2');
+  h2S.textContent= 'SV782';
+   schalkSection.appendChild(h2S)
 //adding list
   const dlS = document.createElement('dl');
   schalkSection.appendChild(dlS);
 
-  const dt= document.createElement('dt');
-  dt.textContent='Athlete: Nwabisa Masiko';
-  nwabisaSection.appendChild(dt);
+  const dtS= document.createElement('dt');
+  dtS.textContent='Athlete:';
+  schalkSection.appendChild(dtS);
+  const ddS= document.createElement('dd');
+  ddS.textContent= `${schalkName} ${schalkSurname}`;
+  schalkSection.appendChild(ddS);
 
-  const dd= document.createElement('dd');
-  dd.textContent= 'Total number of races: 2';
-  nwabisaSection.appendChild(dd);
+  const ddS1= document.createElement('dt');
+  ddS1.textContent='Number of races';
+  schalkSection.appendChild(ddS1);
+  const ddS2= document.createElement('dd');
+  ddS2.textContent=`${schalkRaces}`;
+  schalkSection.appendChild(ddS2);
 
-  const dd1= document.createElement('dd');
-  dd1.textContent='Event Date (Latest): 2 Dec 2022';
-  nwabisaSection.appendChild(dd1);
+  const dtS2= document.createElement('dt');
+  dtS2.textContent='Event Date (Latest)';
+  schalkSection.appendChild(dtS2);
+  const ddS3= document.createElement('dd');
+  ddS3.textContent=`${sDay} ${sMonth} ${sYear}`;
+  schalkSection.appendChild(ddS3);
 
-  const dd3= document.createElement('dd');
-  dd3.textContent='Total Time(Latest):';
-  nwabisaSection.appendChild(dd3);
+  const dtS3= document.createElement('dt');
+  dtS3.textContent='Event Time (Latest):';
+  schalkSection.appendChild(dtS3);
+  const ddS4= document.createElement('dd');
+  ddS4.textContent=`${sTimeHours}`;
+  schalkSection.appendChild(ddS4);
+
 
 
