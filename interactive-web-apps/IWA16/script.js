@@ -76,7 +76,7 @@ const MONTHS = [
   const nwabisaSurname = nwabisaData.surname
   const nwabisaRaces = nwabisaData.races.length
   const nwabisaDate = nwabisaData.races.pop().date
-  const nwabisaTime = nwabisaData.races.pop().time
+  const nwabisaTime = nwabisaData.races[0].time
 
 
   //schalk 
@@ -84,7 +84,7 @@ const MONTHS = [
   const schalkSurname = schalkData.surname
   const schalkRaces = schalkData.races.length
   const schalkDate = schalkData.races.pop().date
-  const schalkTime = schalkData.races.pop().time
+  const schalkTime = schalkData.races[2].time
   console.log(schalkTime)
   
   //date in format
@@ -103,15 +103,17 @@ const MONTHS = [
   const nTimeArray = nwabisaTime[0]+nwabisaTime[1]+nwabisaTime[2]+nwabisaTime[3]
   console.log(nTimeArray)
 
-  const nTimeHours = nTimeArray/60
-  console.log(nTimeHours)
+  const nTimeHours = parseInt(nTimeArray/60)
+  const nTimeMinutes = nTimeArray
   
   //schalkTime
   const sTimeArray = schalkTime[0]+schalkTime[1]+schalkTime[2]+schalkTime[3]
 
 
-  const sTimeHours = sTimeArray/60
-  console.log(sTimeArray)
+  const sTimeHours = parseInt(sTimeArray/60)
+  const sTimeMinutes = sTimeArray
+
+  console.log(sTimeMinutes)
 
   
   //getting information on each section
@@ -154,7 +156,7 @@ const MONTHS = [
   dt3.textContent= 'Event Time (Latest):';
   nwabisaSection.appendChild(dt3);
   const dd3= document.createElement('dd');
-  dd3.textContent=`${nTimeHours}`;
+  dd3.textContent=`0${nTimeHours}:${nTimeMinutes}`;
   nwabisaSection.appendChild(dd3);
   
 //for Schalk 
@@ -178,14 +180,14 @@ const schalkSection = document.querySelector('[data-athlete = SV782]');
   schalkSection.appendChild(ddS);
 
   const ddS1= document.createElement('dt');
-  ddS1.textContent='Number of races';
+  ddS1.textContent='Number of races:';
   schalkSection.appendChild(ddS1);
   const ddS2= document.createElement('dd');
   ddS2.textContent=`${schalkRaces}`;
   schalkSection.appendChild(ddS2);
 
   const dtS2= document.createElement('dt');
-  dtS2.textContent='Event Date (Latest)';
+  dtS2.textContent='Event Date (Latest):';
   schalkSection.appendChild(dtS2);
   const ddS3= document.createElement('dd');
   ddS3.textContent=`${sDay} ${sMonth} ${sYear}`;
@@ -195,7 +197,7 @@ const schalkSection = document.querySelector('[data-athlete = SV782]');
   dtS3.textContent='Event Time (Latest):';
   schalkSection.appendChild(dtS3);
   const ddS4= document.createElement('dd');
-  ddS4.textContent=`${sTimeHours}`;
+  ddS4.textContent=`0${sTimeHours}:${sTimeMinutes}`;
   schalkSection.appendChild(ddS4);
 
 
