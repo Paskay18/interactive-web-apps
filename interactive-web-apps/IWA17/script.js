@@ -1,5 +1,3 @@
-// scripts.js
-
 const MONTHS = [
     'January',
     'February',
@@ -19,27 +17,36 @@ const getDaysInMonth = (date) => new Date(date.getFullYear(), date.getMonth() + 
 
 // Only edit below 
 
-const createArray = (length) => {
+let createArray = (length) => {
+    
     const result = []
 
-    for (0, i, length) {
-        result
-    }
+    for (let i=0; i<8; i= i + 1) {
+        
+     result.push() 
+
+
+return result
 }
+}
+ const mM = createArray(6)
+ console.log(mM)
 
-const createData = () => {
-    const current = new Date
-    current.setDate(1)
+ const createData = () => {
+    const currentDate = new Date
+     console.log(current)
 
-    startDay = current.day
-    daysInMonth = getDaysInMonth(current)
+    const startDay = current.day
+    const daysInMonth = getDaysInMonth(currentDate)}
 
-    weeks = createArray(5)
-    days = createArray(7)
-    value = null
+   let weeks = createArray(5)
 
-    for (weekIndex in weeks) {
-        value = [{
+   console.log(weeks)
+   let days = createArray(7)
+    ///value = null
+
+   /**  for (weekIndex in weeks) {
+      value = [{
             week: weekIndex + 1,
             days: []
         }]
@@ -56,15 +63,17 @@ const createData = () => {
     }
 }
 
+/** 
 const addCell = (existing, classString, value) => {
-    const result = /* html */ `
+    const result = /* html 
+     `
         <td ${classString}>
             ${value}
         </td>
 
         ${existing}
     `
-}
+}  
 
 const createHtml = (data) => {
     let result = ''
@@ -89,8 +98,8 @@ const createHtml = (data) => {
 
         result = `<tr>${inner}</tr>`
     }
-}
-
+} 
+*/
 // Only edit above
 
 const current = new Date()
@@ -98,3 +107,4 @@ document.querySelector('[data-title]').innerText = `${MONTHS[current.getMonth()]
 
 const data = createData()
 document.querySelector('[data-content]').innerHTML = createHtml(data)
+ 

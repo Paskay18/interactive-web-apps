@@ -71,7 +71,7 @@ const MONTHS = [
   const nwabisaData = data.response.data.NM372
   const schalkData = data.response.data.SV782
 
-  //nwabisa
+  //nwabisa's data
   const nwabisaName = nwabisaData.firstName
   const nwabisaSurname = nwabisaData.surname
   const nwabisaRaces = nwabisaData.races.length
@@ -79,7 +79,7 @@ const MONTHS = [
   const nwabisaTime = nwabisaData.races[0].time
 
 
-  //schalk 
+  //schalk's data 
   const schalkName = schalkData.firstName
   const schalkSurname = schalkData.surname
   const schalkRaces = schalkData.races.length
