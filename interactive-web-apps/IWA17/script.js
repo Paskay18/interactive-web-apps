@@ -17,93 +17,81 @@ const getDaysInMonth = (date) => new Date(date.getFullYear(), date.getMonth() + 
 
 // Only edit below 
 
-let createArray = (length) => {
-    
+/**
+ * This function is used to create the different arrays which will be used to create
+ * the columns and rows of the calender. It is used to change the lengths.
+ * @param {} length 
+ * @returns 
+ */
+
+const createArray = (length) => {
     const result = []
 
-    for (let i=0; i<8; i= i + 1) {
-        
-     result.push() 
-
-
-return result
+    for (let i=0; i<length; i++) {       
+        result.push(i)
+    }
+    return result
 }
-}
- const mM = createArray(6)
- console.log(mM)
 
- const createData = () => {
-    const currentDate = new Date
-     console.log(current)
 
-    const startDay = current.day
-    const daysInMonth = getDaysInMonth(currentDate)}
 
-   let weeks = createArray(5)
 
-   console.log(weeks)
-   let days = createArray(7)
-    ///value = null
+const createData = () => {
+ const current = new Date()
+    current.setDate(1)
 
-   /**  for (weekIndex in weeks) {
-      value = [{
+    //to get start day
+
+const startDay = new Date(current.getFullYear(), current.getMonth(), 1)
+const daysInMonth = getDaysInMonth(current)
+
+    const weeks = createArray(5)
+    const days = createArray(7)
+    console.log(days)
+    let valueWeeks = null
+    let valueDays = null
+     let day = null
+    
+
+     // to get the different days in the month
+     for( let i=0 ; i< daysInMonth ;i++ ){
+         day = day +1 
+        console.log(day)
+    }
+
+    for (const weekIndex in weeks) {
+        valueWeeks = [{
             week: weekIndex + 1,
             days: []
         }]
+ 
+        for (const dayIndex in days) {
+            valueDays = dayIndex + startDay}
+            
 
-        for (dayIndex in days) {
-            value = dayIndex - startDay
-            isValid = day > 0 && day <= daysInMonth
-
-            result[weekIndex].days = [{
-                dayOfWeek: dayIndex + 1,
-                value: isValid && day,
-            }]
-        }
+            const isValid = day> 0 && day <= daysInMonth
+            
+            if (isValid){
+                result[weekIndex].days = [{
+                    dayOfWeek: dayIndex + 1,
+                    value: isValid && day,
+                }]
+            }
+            
+ console.log(isValid)
+            
     }
 }
 
-/** 
 const addCell = (existing, classString, value) => {
-    const result = /* html 
-     `
+    const result = /* html */ `
         <td ${classString}>
             ${value}
         </td>
 
         ${existing}
     `
-}  
-
-const createHtml = (data) => {
-    let result = ''
-
-    for (week, days in data) {
-        let inner = ""
-        addCell(inner, 'table__cell table__cell_sidebar', 'Week {week}')
-    
-        for (dayOfWeek, value in days) {
-            classString = table__cell
-						isToday = new Date === value
-            isWeekend = dayOfWeek = 1 && dayOfWeek == 7
-            isAlternate = week / 2
-
-            let classString = 'table__cell'
-
-						if (isToday) classString = `${classString} table__cell_today`
-            if (isWeekend) classString === '{classString} table__cell_weekend'
-            if (isAlternate) classString === '{classString} table__cell_alternate'
-            addCell(inner, classString, value)
-        }
-
-        result = `<tr>${inner}</tr>`
-    }
-} 
-*/
-// Only edit above
-
-const current = new Date()
-document.querySelector('[data-title]').innerText = `${MONTHS[current.getMonth()]} ${current.getFullYear()}`
+}
 
 const data = createData()
 document.querySelector('[data-content]').innerHTML = createHtml(data)
