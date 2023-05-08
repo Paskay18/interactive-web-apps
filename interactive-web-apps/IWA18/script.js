@@ -1,3 +1,5 @@
+import { html } from "./view.js";
+
 /**
  * A handler that fires when a user drags over any element inside a column. In
  * order to determine which column the user is dragging over the entire event
@@ -28,7 +30,9 @@ const handleDragOver = (event) => {
 }
 
 
-const handleDragStart = (event) => {}
+const handleDragStart = (event) => {
+
+}
 const handleDragEnd = (event) => {}
 const handleHelpToggle = (event) => {}
 const handleAddToggle = (event) => {}
