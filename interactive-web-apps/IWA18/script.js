@@ -1,4 +1,4 @@
-import { html } from "./view.js";
+import { html } from "./view.js";  //added.js
 
 /**
  * A handler that fires when a user drags over any element inside a column. In
@@ -32,16 +32,30 @@ const handleDragOver = (event) => {
 
 const handleDragStart = (event) => {
 
+
 }
 const handleDragEnd = (event) => {}
 const handleHelpToggle = (event) => {}
-const handleAddToggle = (event) => {}
-const handleAddSubmit = (event) => {}
+const handleAddToggle = (event) => {
+
+}
+
+
+/**
+ * 
+ * @param {*} event 
+ * 
+ * Handler 
+ */
+const handleAddSubmit = (event) => {
+    
+
+}
 const handleEditToggle = (event) => {}
 const handleEditSubmit = (event) => {}
 const handleDelete = (event) => {}
 
-html.add.cancel.addEventListener('click', handleAddToggle)
+html.add.cancel.addEventListener('click', handleAddToggle)                
 html.other.add.addEventListener('click', handleAddToggle)
 html.add.form.addEventListener('submit', handleAddSubmit)
 
