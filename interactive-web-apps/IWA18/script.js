@@ -109,10 +109,47 @@ const handleEditSubmit = (event) => {
         column: html.edit.column.value,
      };
 
+     const orderEdit = { id, title, table, created, column};
+ 
+     //to get the index of the order
+     let orderIndex = -1;   
 
-    //allows you to edit orders
-
+for( let i=0; i<state.orders.length; i++){
+    if (state.orders[i].id === id){
+        orderIndex: i;
+        break;
+    };
 };
+ 
+
+//updates the data 
+state.orders[orderIndex]= createOrderData(orderEdit);
+
+ //newOrder that will be deleted
+ const newOrderEdit= createOrderHtml(orderEdit);
+
+ //order to be deleted
+ const oldOrderEdit = document.querySelector(`[data-id="${id}"]`);
+
+ //updating the order
+ oldOrderEdit.replaceWith(newOrderEdit);
+ 
+
+ //for new order to go to the correct column
+ switch(column){
+    case "ordered": html.area.ordered.append(newOrderEdit);
+    break;
+
+    case "preparing": html.area.preparing.append(newOrderEdit);
+
+    break;
+    case "serving": html.area.serving.append(newOrderEdit);
+    break;
+    default:
+    break;
+ }
+html.edit.overlay.close();
+ };
 html.edit.form.addEventListener('submit', handleEditSubmit)
 
 
