@@ -116,11 +116,55 @@ const handleEditSubmit = (event) => {
 html.edit.form.addEventListener('submit', handleEditSubmit)
 
 
+//To delete edited orders
 const handleDelete = (event) => {
+    //to delete the order 
+
+    event.preventDefault();
+
+
+    //orders that are allowed to be edited
+    const { id, title, table, created, column}={
+        id: state.orders,
+        title: html.edit.title.value,
+        table: html.edit.table.value,
+        created: new Date(),
+        column: html.edit.column.value,
+     };
     
+    const orderDelete = { id, title, table, created, column};
+
+
+    //to get the index of the order
+
+    for( let i=0; i<state.orders.length; i++){
+        if (state.orders[i].id === id){
+            orderId: [i];
+            break;
+        };
+    
+    };
+
+
+    //newOrder that will be deleted
+    const newOrderDelete= createOrderHtml(orderDelete);
+
+    //order to be deleted
+    const oldOrderDelete = document.querySelector(`[data-id="${id}"]`);
+
+    //deleting the order
+    oldOrderDelete.remove(newOrderDelete);
+    html.edit.overlay.close();
+    
+
 };
 
+
 html.edit.delete.addEventListener('click', handleDelete)
+
+
+
+
 
 
 
