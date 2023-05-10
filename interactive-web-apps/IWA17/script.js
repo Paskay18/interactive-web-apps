@@ -89,7 +89,7 @@ const createHtml = (data) => {
     
         for (let j=0; j<week.days.length; j++) {
             const dayOfWeek = week.days[j];
-           
+           const current = new Date()
            
 			
 
