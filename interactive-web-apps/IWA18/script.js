@@ -1,6 +1,7 @@
-//import information from data.js and view.js in order to use in app
-import { TABLES, COLUMNS, createOrderData, state, updateDragging } from "./data.js";   //added this import
-import { createOrderHtml, html, updateDraggingHtml, moveToColumn } from "./view.js";  //added .js
+//Import all the data to be used from the necessary javascripts
+import { TABLES, COLUMNS, state, createOrderData, updateDragging } from "./data.js";
+import { createOrderHtml, html, updateDraggingHtml, moveToColumn } from "./view.js";
+
 
 /**
  * A handler that fires when a user drags over any element inside a column. In
@@ -31,138 +32,95 @@ const handleDragOver = (event) => {
     updateDraggingHtml({ over: column })
 }
 
+//To allow the order to be dragged into the different columns
 
-let dragged;
+let draggedItem;
 const handleDragStart = (event) => {
- dragged= event.target;   
-
+    //stores a reference to the dragged item
+   draggedItem = event.target;
 };
-const handleDragDrop = (j) => {
-    a.target.append(dragged);
+const handleDragDrop = (event) =>{
+    //moves the seleceted item to where its supposed to be dropped
+ event.target.append(draggedItem)
 };
-const handleDragEnd = (p) => {
-    const background = p.target.closest('section');
-    background.style.backgroundColor= " ";
-}; 
-for ( const htmlArea of Object.values(html.area)){
-    htmlArea.addEventListener("dragover", handleDragOver);
-    htmlArea.addEventListener("dragstart", handleDragStart);
-    htmlArea.addEventListener( "drop", handleDragDrop);
-    htmlArea.addEventListener("dragend", handleDragEnd);
-
+const handleDragEnd = (event) => {
+    //changes the background colour when item is dropped
+    const backgroundColor = event.target.closest('section');
+    backgroundColor.style.backgroundColor= "";
 };
 
+for (const htmlArea of Object.values(html.area)) {
+    htmlArea.addEventListener('dragover', handleDragOver);
+    htmlArea.addEventListener('dragstart', handleDragStart);
+    htmlArea.addEventListener('dragend', handleDragEnd);
+    htmlArea.addEventListener('drop', handleDragDrop);
+};
 
-
-
-// this is to show the user how the app
-const handleHelpToggle = (event)=> {
+//To make the help button open and close
+const handleHelpToggle = (event) => {
+    //to allow the ? to open 
     html.help.overlay.toggleAttribute("open");
 };
-html.help.cancel.addEventListener("click", handleHelpToggle)
-html.other.help.addEventListener("click", handleHelpToggle)
-
-
-
-//allows user to add order and cancel button on the order tab
-const handleAddToggle = (event) => {
-    html.add.overlay.toggleAttribute("open");
-}
-html.add.cancel.addEventListener('click', handleAddToggle)
-html.other.add.addEventListener('click', handleAddToggle) 
-
-
-//allos user to make selection of order they made
-const handleAddSubmit = (event) => {
-    event.preventDefault();
-    const order={
-        id: state.orders,
-        title: html.add.title.value,
-        title: html.add.title.value,
-        created: new Date(),
-    };
-
-    const orderElement = createOrderHtml(order);
-    html.area.ordered.append(orderElement);
-    html.add.form.reset();
-    html.add.overlay.close();
-}
-html.add.form.addEventListener('submit', handleAddSubmit)
-
-
-//to edit order tab
-const handleEditToggle = (event) => {
-    html.edit.overlay.toggleAttribute("open");
-    
-}
-html.other.grid.addEventListener('click', handleEditToggle)
-html.edit.cancel.addEventListener('click', handleEditToggle)
-
-const handleEditSubmit = (event) => {
-    event.preventDefault();
-    const { id , title , table, created, column}={
-        title: html.edit.title.value,
-        table: html.edit.table.value,
-        created: new Date(),
-        Id: state.orders,
-        column: html.edit.column.value,
-    };
-    const order = { id, title, table, created, column};
-
-    let  orderId = -1 //checks order index if its found
-
-    for(let j=0; j< state.orders.length; j++){
-        if (state.orders[j].id === id){
-            orderId = j;
-            break
-        };
-    };
-
-    //cancel button to enable you to cancel
-
-    state.orders[orderId]= createOrderData(order);
-
-    const newOrderMade = createOrderHtml(order);
-    const oldOrder = document.querySelector(`[data-id="${id}"]`);
-    order.replaceWith(newOrderMade);
-
-    //adding the order to HTML column
-   
-    switch(column) {
-        case "ordered":
-            html.area.ordered.append(newOrderMade);
-
-        break;
-        case "preparing":
-            html.area.preparing.append(newOrderMade);
-        
-        break;
-        case "served":
-            html.area.served.append(newOrderMade);
-             break;
-             default:
-             break;
-    };
-
-     html.edit.overlay.close()
-
-            
-    };
-
-
-               
-
-
-
-
-html.edit.form.addEventListener('submit', handleEditSubmit)
-html.edit.delete.addEventListener('click', handleDelete)
-
 html.help.cancel.addEventListener('click', handleHelpToggle)
 html.other.help.addEventListener('click', handleHelpToggle)
 
+//to allow the Add button to function
+const handleAddToggle = (event) => {
+    //allows add button to open and close
+    html.add.overlay.toggleAttribute("open");
+};
+html.add.cancel.addEventListener('click', handleAddToggle)
+html.other.add.addEventListener('click', handleAddToggle)
+
+const handleAddSubmit = (event) => {
+ //allows orders to be placed and submitted
+ event.preventDefault();
+
+ const order={
+    id: state.orders,
+    title: html.add.title.value,
+    table: html.add.table.value,
+    created: new Date(),
+};
+const orderElement = createOrderHtml(order);
+html.area.ordered.append(orderElement);
+html.add.form.reset();
+html.add.overlay.close();
+};
+html.add.form.addEventListener('submit', handleAddSubmit)
 
 
-for (const htmlArea of Object.values(html.area)) {
-    htmlArea.addEventListener('dragover', handleDragOver)
-}
+//to edit order
+const handleEditToggle = (event) => {
+        //opens and closes the edit option of order
+        html.edit.overlay.toggleAttribute("open");
+        };
+    html.other.grid.addEventListener('click', handleEditToggle)
+    html.edit.cancel.addEventListener('click', handleEditToggle)
+    
+const handleEditSubmit = (event) => {
+    event.preventDefault();
+
+    const { id, title, table, created, column}={
+        id: state.orders,
+        title: html.edit.title.value,
+        table: html.edit.table.value,
+        created: new Date(),
+        column: html.edit.column.value,
+     };
+
+
+    //allows you to edit orders
+
+};
+html.edit.form.addEventListener('submit', handleEditSubmit)
+
+
+const handleDelete = (event) => {
+    
+};
+
+html.edit.delete.addEventListener('click', handleDelete)
+
+
+
