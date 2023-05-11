@@ -82,6 +82,7 @@ const handleAddSubmit = (event) => {
     table: html.add.table.value,
     created: new Date(),
 };
+
 const orderElement = createOrderHtml(order);
 html.area.ordered.append(orderElement);
 html.add.form.reset();

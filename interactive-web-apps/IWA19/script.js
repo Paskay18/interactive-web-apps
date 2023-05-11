@@ -1,8 +1,8 @@
-import { BOOKS_PER_PAGE, authors, genres, books } from "./data.js";
+import { BOOKS_PER_PAGE, authors, genres, books } from "./data.js"; 
 
-//to allow the user to get a list of books
+//data to be used
 
-//we want to use the question button to do that 
+
 const matches = books     
 const page = 1;
 
@@ -21,52 +21,16 @@ night = {
     light: '10, 10, 20',
 }
 
-fragment = document.createDocumentFragment()
-const extracted = books.slice(0, 36)
 
-for ({ author, image, title, id }; extracted; i++) {
-    const preview = createPreview({
-        author,
-        id,
-        image,
-        title
-    })
+//putting data in the HTML Dom
 
-    fragment.appendChild(preview)
-}
 
-data-list-items.appendChild(fragment)
 
-genres = document.createDocumentFragment()
-element = document.createElement('option')
-element.value = 'any'
-element = 'All Genres'
-genres.appendChild(element)
 
-for ([id, name]; Object.entries(genres); i++) {
-    document.createElement('option')
-    element.value = value
-    element.innerText = text
-    genres.appendChild(element)
-}
 
-data-search-genres.appendChild(genres)
 
-authors = document.createDocumentFragment()
-element = document.createElement('option')
-element.value = 'any'
-element.innerText = 'All Authors'
-authors.appendChild(element)
 
-for ([id, name];Object.entries(authors); id++) {
-    document.createElement('option')
-    element.value = value
-    element = text
-    authors.appendChild(element)
-}
-
-data-search-authors.appendChild(authors)
-
+//for theme
 data-settings-theme.value === window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'night' : 'day'
 v = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches? 'night' | 'day'
 
@@ -81,7 +45,9 @@ data-list-button.innerHTML = /* html */ [
     '<span class="list__remaining"> (${matches.length - [page * BOOKS_PER_PAGE] > 0 ? matches.length - [page * BOOKS_PER_PAGE] : 0})</span>',
 ]
 
-data-search-cancel.click() { data-search-overlay.open === false }
+
+//event listners when you open the buttons
+
 data-settings-cancel.click() { querySelect(data-settings-overlay).open === false }
 data-settings-form.submit() { actions.settings.submit }
 data-list-close.click() { data-list-active.open === false }
@@ -92,10 +58,7 @@ data-list-button.click() {
     page = page + 1
 }
 
-data-header-search.click() {
-    data-search-overlay.open === true ;
-    data-search-title.focus();
-}
+
 
 data-search-form.click(filters) {
     preventDefault()
@@ -190,3 +153,140 @@ data-list-items.click() {
     data-list-subtitle === '${authors[active.author]} (${Date(active.published).year})'
     data-list-description === active.description
 }
+/**
+ * This creates genre and author options once the search button is pressed and it is created in the HTML
+ */
+
+//genre options
+const createGenreOptionsHtml = () =>{
+    const fragment = document.createDocumentFragment()
+    
+    const option = document.createElement('option')     //added const 
+    option.value = "any"                              //replaced element with option
+    option.innerText = "All Genres"
+    html.search.genres.appendChild(option)        
+   
+
+for (const [id, names] of Object.entries(genres)) {
+   const element = document.createElement('option')     //added const 
+    element.value = id                              //replaced element with option
+    element.innerText = names
+    fragment.appendChild(element)                             
+}
+return fragment
+}
+//author options
+const createAuthorOptionsHtml = () =>{
+    const fragment = document.createDocumentFragment()
+
+    const option = document.createElement('option')    //added const
+    option.value = "any"                               //changed element to option
+    option.innerText = "All Authors"                          //added .innertext
+    html.search.authors.appendChild(option)
+
+
+    for ( const [id, names]of Object.entries(genres)) {
+    const element = document.createElement('option')    //added const
+    element.value = id                              //changed element to option
+    element.innerText = names                           //added .innertext
+    fragment.appendChild(element)
+}
+   return fragment
+}
+
+
+const createPreviewOptionHtml = () => {
+
+const fragment = document.createDocumentFragment()
+    
+    const extracted = books.slice(0, 36)
+    
+    for ({ author, image, title, id }; extracted; i++) {
+        const preview = createPreview({
+            author,
+            id,
+            image,
+            title
+        })
+    
+        fragment.appendChild(preview)
+    }
+    
+    data-list-items.appendChild(fragment)
+}
+
+
+/**
+ * This is an object literal that contains all the references to all the HTML elements 
+ * that are referenced throught the app either through initialization or while its running through event listeners.
+ * 
+ */
+
+const html = {
+    header:{
+        search: document.querySelector('[data-header-search]'),
+        settings: document.querySelector('[data-header-settings'),
+    },
+
+    list:{
+        items: document.querySelector('[data-list-items]'),
+        message: document.querySelector('[data-list-message]'),
+        button: document.querySelector('[data-list-button]'),
+        blur: document.querySelector('[data-list-blur]'),
+        title: document.querySelector('[data-list-title]'),
+        subtitle: document.querySelector('[data-list-subtitle]'),
+        description: document.querySelector('[data-list-description]'),
+        close: document.querySelector('[data-list-close]'),
+        
+},
+
+  search: {
+    overlay: document.querySelector('[data-search-overlay]'),
+    form: document.querySelector('[data-search-form]'),
+    title: document.querySelector('[data-search-title]'),
+    genres: document.querySelector('[data-search-genres]'),
+    authors: document.querySelector('[data-search-authors]'),
+    cancel: document.querySelector('[data-search-cancel]'),
+  },
+
+  settings:{
+    overlay: document.querySelector('[data-settings-overlay]'),
+    form: document.querySelector('[data-settings-form]'),
+    theme:document.querySelector('[data-settings-theme]'),
+    cancel:document.querySelector('[data-settings-cancel]'),
+
+  },
+}
+
+/**
+ * When the app starts and the search button is clicked, this will allow the search button to be in focus
+ * immediately allowing the viewer to serach the different type of books
+ */
+
+html.search.title.focus()
+
+//need to add other things as well that will have focus when search button is clicked
+
+html.search.genres.appendChild(createGenreOptionsHtml())               //genres options
+html.search.authors.appendChild(createAuthorOptionsHtml())             //author options
+
+
+
+/**
+ * This is where event listeners are added to make the specific functionalities work
+ */
+
+
+//for the search button to function
+
+const handleSearchToggle = (event) => {
+    html.search.overlay.toggleAttribute("open");
+};
+html.header.search.addEventListener('click', handleSearchToggle)
+html.search.cancel.addEventListener('click', handleSearchToggle)
+
+
+const handleSearchDelete =()=> {
+    html.search.cancel.close();
+}
+html.header.search.addEventListener('click', handleSearchDelete)
