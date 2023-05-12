@@ -153,6 +153,9 @@ data-list-items.click() {
     data-list-subtitle === '${authors[active.author]} (${Date(active.published).year})'
     data-list-description === active.description
 }
+
+
+
 /**
  * This creates genre and author options once the search button is pressed and it is created in the HTML
  */
@@ -194,6 +197,10 @@ const createAuthorOptionsHtml = () =>{
    return fragment
 }
 
+
+/**
+ * This allows the user to preview a list of books 
+ */
 
 const createPreviewOptionHtml = () => {
 
@@ -277,15 +284,17 @@ html.search.authors.appendChild(createAuthorOptionsHtml())             //author 
  */
 
 
-//for the search button to function
+//search button to function
 
+//for the search button to open and close
 const handleSearchToggle = (event) => {
-    html.search.overlay.toggleAttribute("open");
+html.search.overlay.toggleAttribute("open");
 };
 html.header.search.addEventListener('click', handleSearchToggle)
 html.search.cancel.addEventListener('click', handleSearchToggle)
 
 
+//need to fix below
 const handleSearchDelete =()=> {
     html.search.cancel.close();
 }
